@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class health : MonoBehaviour
+public class HealthPoint : MonoBehaviour
 {
 
     public float Health = 100;
-
-    void Start()
-    {
-        
-    }
+    public Canvas screen;
 
     public bool isAlive()
     {
@@ -23,6 +19,11 @@ public class health : MonoBehaviour
 
     void Update()
     {
-
+        if (!isAlive())
+        {
+            screen.enabled = false;
+            Destroy(GameObject.Find("Player"));
+        }
+        if (Health <= 0) Health = 0;
     }
 }

@@ -5,13 +5,13 @@ using UnityEngine;
 public class playerControl : MonoBehaviour
 {
     public float defaultSpeed = 10, fastSpeed = 20, speed = 10, sensitivity = 10, jumpSpeed = 10;
-    private float seconds = 0, tallHeight = 1f, mediumHeight = 5, smallHeight = 2f;
+    private float seconds = 0, tallHeight = 10f, mediumHeight = 5, smallHeight = 2f;
     CharacterController cc;
-    health hp;
+    HealthPoint hp;
 
     void Start()
     {
-        hp = GetComponent<health>();
+        hp = GetComponent<HealthPoint>();
         Cursor.lockState = CursorLockMode.Locked;
         cc = GetComponent<CharacterController>();
     }
