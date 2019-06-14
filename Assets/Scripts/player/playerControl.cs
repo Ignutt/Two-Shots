@@ -17,6 +17,7 @@ public class playerControl : MonoBehaviour
     }
 
     Vector3 newPoint;
+    public Animator anim;
     void Update()
     {
         newPoint.Set(
