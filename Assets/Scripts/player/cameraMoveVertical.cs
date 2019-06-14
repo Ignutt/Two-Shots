@@ -9,7 +9,7 @@ public class cameraMoveVertical : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(Input.GetAxis("Mouse Y") * -1 * sensitivity, 0, 0);
-        arms.transform.Rotate(Input.GetAxis("Mouse Y") * -1 * sensitivity, 0, 0);
+         transform.Rotate(Input.GetAxis("Mouse Y") * -1 * sensitivity, 0, 0);
+         arms.transform.Rotate(Input.GetAxis("Mouse Y") * -1 * sensitivity, 0, 0);        
     }
 }

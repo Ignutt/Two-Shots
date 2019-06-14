@@ -11,7 +11,7 @@ public class shoot : MonoBehaviour
 
     public ammo ammo;
 
-    public AudioClip shootSound, reloadingSound, startSound;
+    public AudioClip shootSound, reloadingSound, startSound, noAmmo;
 
     void Start()
     {
@@ -27,7 +27,8 @@ public class shoot : MonoBehaviour
                 GetComponent<AudioSource>().PlayOneShot(shootSound);
                 Instantiate(bullets, spawnBullet.position, player.rotation);
                 ammo.ammoInMagaz--;
-            }           
+            }
+            else GetComponent<AudioSource>().PlayOneShot(noAmmo);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -37,12 +38,12 @@ public class shoot : MonoBehaviour
                 anim.Play("Reload Out Of Ammo");
                 GetComponent<AudioSource>().PlayOneShot(reloadingSound);
                 int needAmmo = 30 - ammo.ammoInMagaz;
-                if (needAmmo > ammo.allAmmo)
+                if (needAmmo >= ammo.allAmmo)
                 {
                     ammo.ammoInMagaz += ammo.allAmmo;
                     ammo.allAmmo = 0;
                 }
-                else if (ammo.allAmmo > needAmmo)
+                else if (ammo.allAmmo >= needAmmo)
                 {
                     ammo.allAmmo -= needAmmo;
                     ammo.ammoInMagaz += needAmmo;
